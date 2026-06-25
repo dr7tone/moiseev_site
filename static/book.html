@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книга — Название книги</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="project-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/">Главная</a>
+                <span>/</span>
+                <span>Книга: Название книги</span>
+            </nav>
+            <h1 class="project-title">Название книги</h1>
+            <p class="project-subtitle">Жанр / Год выпуска</p>
+            <div class="download-block">
+                <a href="/book/Человек в Малиновом костюме.docx" class="btn btn-download" download>Скачать книгу (DOCX)</a>
+                <span class="file-size">~ 2.5 МБ</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="author-thoughts">
+        <div class="container">
+            <h2 class="section-title">Мысли автора</h2>
+            <div class="thoughts-content">
+                <p>Здесь вы можете написать текст о том, как создавалась книга, какие идеи в ней заложены, кому она будет полезна. Расскажите о своём вдохновении, о процессе написания, о том, что вы хотели донести до читателя. Этот блок — ваше личное обращение к читателю.</p>
+                <p>Можно добавить несколько абзацев. Например, о том, почему вы выбрали именно эту тему, какие исследования провели, и какие эмоции испытывали, когда ставили последнюю точку.</p>
+                <p>Также можно упомянуть благодарности тем, кто помогал вам в работе над книгой.</p>
+            </div>
+        </div>
+    </section>
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы читателей</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Анна С.</span>
+                        <span class="review-date">12.03.2026</span>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <p class="review-text">Очень вдохновляющая книга! Читается на одном дыхании. Автору удалось передать глубину мыслей простым языком. Рекомендую всем, кто ищет ответы на сложные вопросы.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-author">Михаил П.</span>
+                        <span class="review-date">05.02.2026</span>
+                    </div>
+                    <div class="review-rating">★★★★☆</div>
+                    <p class="review-text">Хорошая книга, но местами затянута. Однако в целом полезная, особенно для начинающих. Много практических советов.</p>
+                </div>
+                <div class="review-card placeholder-review">
+                    <div class="review-header">
+                        <span class="review-author">Екатерина Д.</span>
+                        <span class="review-date">20.01.2026</span>
+                    </div>
+                    <div class="review-rating">★★★★★</div>
+                    <p class="review-text">Книга изменила моё восприятие мира. Автор — гений! Жду продолжения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="review-form-section">
+        <div class="container">
+            <h2 class="section-title">Оставить отзыв</h2>
+            <form class="review-form">
+                <div class="form-group">
+                    <label for="review-name">Ваше имя</label>
+                    <input type="text" id="review-name" placeholder="Иван Петров" required>
+                </div>
+                <div class="form-group">
+                    <label for="review-text">Ваш отзыв</label>
+                    <textarea id="review-text" rows="4" placeholder="Поделитесь впечатлениями..." required></textarea>
+                </div>
+                <div class="form-group rating-group">
+                    <label>Оценка</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-submit">Отправить отзыв</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Иван Иванов. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
