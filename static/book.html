@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Книга — Название книги</title>
+    <title>Книга — Человек в малиновом костюме</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -12,13 +12,22 @@
             <nav class="breadcrumb">
                 <a href="/">Главная</a>
                 <span>/</span>
-                <span>Книга: Название книги</span>
+                <span>Книга: Человек в малиновом костюме</span>
             </nav>
-            <h1 class="project-title">Название книги</h1>
-            <p class="project-subtitle">Жанр / Год выпуска</p>
-            <div class="download-block">
-                <a href="/book/Человек в Малиновом костюме.docx" class="btn btn-download" download>Скачать книгу (DOCX)</a>
-                <span class="file-size">~ 2.5 МБ</span>
+
+            <!-- Блок с обложкой и описанием -->
+            <div class="book-intro">
+                <div class="book-cover">
+                    <img src="/static/человек в малиновом костюме.png" alt="Обложка книги «Человек в малиновом костюме»">
+                </div>
+                <div class="book-info">
+                    <h1 class="project-title">Человек в малиновом костюме</h1>
+                    <p class="project-subtitle">Философско-психологическая драма / 2025</p>
+                    <div class="download-block">
+                        <a href="/book/Человек в Малиновом костюме.docx" class="btn btn-download" download>Скачать книгу (DOCX)</a>
+                        <span class="file-size">~ 221 КБ</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -27,9 +36,9 @@
         <div class="container">
             <h2 class="section-title">Мысли автора</h2>
             <div class="thoughts-content">
-                <p>Здесь вы можете написать текст о том, как создавалась книга, какие идеи в ней заложены, кому она будет полезна. Расскажите о своём вдохновении, о процессе написания, о том, что вы хотели донести до читателя. Этот блок — ваше личное обращение к читателю.</p>
-                <p>Можно добавить несколько абзацев. Например, о том, почему вы выбрали именно эту тему, какие исследования провели, и какие эмоции испытывали, когда ставили последнюю точку.</p>
-                <p>Также можно упомянуть благодарности тем, кто помогал вам в работе над книгой.</p>
+                <p>Эту книгу каждый должен понимать по своему. Она была написанна именно для этого.</p>
+                <p>Интересный факт: уже после написания книги я начал смотреть сериал "Детство Шелдона" и пришел к выводу, что Шелдон и Малиновый очень похожи своей гиперболизированной логичностью</p>
+                <p>Если вы прочитали книгу: убедительная просьба оставить отзыв здесь или сообщить его мне лично по контактам на главной странице</p>
             </div>
         </div>
     </section>
@@ -53,7 +62,7 @@
                     <div class="review-rating">★★★★☆</div>
                     <p class="review-text">Хорошая книга, но местами затянута. Однако в целом полезная, особенно для начинающих. Много практических советов.</p>
                 </div>
-                <div class="review-card placeholder-review">
+                <div class="review-card">
                     <div class="review-header">
                         <span class="review-author">Екатерина Д.</span>
                         <span class="review-date">20.01.2026</span>
