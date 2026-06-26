@@ -152,7 +152,6 @@ True_admin = admins(login=str(admin_login), password=str(admin_password))
 
 @app.post("/api/admin/send")
 async def admin_check(response: Response, request: Request, session: SessionDep, form: Annotated[check_admin, fastui_form(check_admin)]) -> list[AnyComponent]:
-    print(f'{form=}')
     if form.login == True_admin.login and form.password == True_admin.password:
         token = security.create_access_token(uid="1")
         response.set_cookie(config.JWT_ACCESS_COOKIE_NAME, token)
@@ -255,4 +254,4 @@ async def html_landing() -> HTMLResponse:
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run('main:app', reload=True)
+    uvicorn.run('main:app', reload=True, host="0.0.0.0")
