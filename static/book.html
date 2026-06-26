@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+
+    <!-- Модальное окно -->
+    <div id="successModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+            <div class="modal-icon">✅</div>
+            <h2 class="modal-title">Отлично!</h2>
+            <p class="modal-message" id="modalMessage">Ваш отзыв успешно отправлен. Спасибо!</p>
+            <button class="btn modal-btn" id="modalOkBtn">Хорошо</button>
+        </div>
+    </div>
+
+    <!-- Шапка -->
     <header class="project-header">
         <div class="container">
             <nav class="breadcrumb">
@@ -15,10 +28,9 @@
                 <span>Книга: Человек в малиновом костюме</span>
             </nav>
 
-            <!-- Блок с обложкой и описанием -->
             <div class="book-intro">
                 <div class="book-cover">
-                    <img src="/static/человек в малиновом костюме.png" alt="Обложка книги «Человек в малиновом костюме»">
+                    <img src="/static/человек в малиновом костюме.png" alt="Обложка книги">
                 </div>
                 <div class="book-info">
                     <h1 class="project-title">Человек в малиновом костюме</h1>
@@ -32,16 +44,19 @@
         </div>
     </header>
 
+    <!-- Мысли автора -->
     <section class="author-thoughts">
         <div class="container">
             <h2 class="section-title">Мысли автора</h2>
             <div class="thoughts-content">
-                <p>Эту книгу каждый должен понимать по своему. Она была написанна именно для этого.</p>
-                <p>Интересный факт: уже после написания книги я начал смотреть сериал "Детство Шелдона" и пришел к выводу, что Шелдон и Малиновый очень похожи своей гиперболизированной логичностью</p>
-                <p>Если вы прочитали книгу: убедительная просьба оставить отзыв здесь или сообщить его мне лично по контактам на главной странице</p>
+                <p>Эту книгу каждый должен понимать по своему. Она была написана именно для этого.</p>
+                <p>Интересный факт: уже после написания книги я начал смотреть сериал "Детство Шелдона" и пришел к выводу, что Шелдон и Малиновый очень похожи своей гиперболизированной логичностью.</p>
+                <p>Если вы прочитали книгу: убедительная просьба оставить отзыв здесь или сообщить его мне лично по контактам на главной странице.</p>
             </div>
         </div>
     </section>
+
+    <!-- Отзывы -->
     <section class="reviews">
         <div class="container">
             <h2 class="section-title">Отзывы читателей</h2>
@@ -74,24 +89,25 @@
         </div>
     </section>
 
+    <!-- Форма отзыва -->
     <section class="review-form-section">
         <div class="container">
             <h2 class="section-title">Оставить отзыв</h2>
-            <form class="review-form">
+            <form action="/submit-feedback/" method="post" class="review-form">
                 <div class="form-group">
                     <label for="review-name">Ваше имя</label>
-                    <input type="text" id="review-name" placeholder="Иван Петров" required>
+                    <input type="text" id="review-name" name="name" placeholder="Иван Петров" required>
                 </div>
                 <div class="form-group">
                     <label for="review-text">Ваш отзыв</label>
-                    <textarea id="review-text" rows="4" placeholder="Поделитесь впечатлениями..." required></textarea>
+                    <textarea id="review-text" name="message" rows="4" placeholder="Поделитесь впечатлениями..." required></textarea>
                 </div>
                 <div class="form-group rating-group">
                     <label>Оценка</label>
                     <div class="star-rating">
                         <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
                         <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-                        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                        <input type="radio" id="star3" name="rating" value="3" checked><label for="star3">★</label>
                         <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
                         <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
                     </div>
@@ -106,5 +122,62 @@
             <p>&copy; 2026 Иван Иванов. Все права защищены.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.review-form');
+            const modal = document.getElementById('successModal');
+            const modalMessage = document.getElementById('modalMessage');
+            const closeBtns = [
+                document.getElementById('modalCloseBtn'),
+                document.getElementById('modalOkBtn')
+            ];
+
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+
+            closeBtns.forEach(btn => {
+                if (btn) {
+                    btn.addEventListener('click', closeModal);
+                }
+            });
+
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const formData = new FormData(form);
+
+                    fetch('/submit-feedback/', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            modalMessage.textContent = data.message || 'Ваш отзыв успешно отправлен. Спасибо!';
+                            modal.style.display = 'flex';
+                            form.reset();
+                            document.querySelectorAll('.star-rating input').forEach(r => r.checked = false);
+                        } else {
+                            alert('❌ ' + (data.message || 'Что-то пошло не так.'));
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Ошибка:', error);
+                        alert('❌ Ошибка сети. Проверьте соединение.');
+                    });
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
