@@ -60,20 +60,22 @@ class reviewModel(Base):
     rating: Mapped[str]
 
 
-# @app.post("/setup_db")
-# async def setup_db():
-#     try:
-#         async with engine.begin() as connection:
-#             await connection.run_sync(Base.metadata.drop_all)
-#             await connection.run_sync(Base.metadata.create_all)
-#         return {"all good": "true"}
-#     except:
-#         return {"all no good"}
+@app.post("/setup_db", dependencies=[Depends(security.access_token_required)])
+async def setup_db():
+    try:
+        async with engine.begin() as connection:
+            await connection.run_sync(Base.metadata.drop_all)
+            await connection.run_sync(Base.metadata.create_all)
+        return {"all good": "true"}
+    except:
+        return {"all no good"}
     
 
 
 app.mount("/book", StaticFiles(directory="book"), name="book")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
 @app.get("/")
 def general_window():
     return FileResponse("index.html")
@@ -94,7 +96,6 @@ async def submit_feedback(
     )
     session.add(new_item)
     await session.commit()
-    print(f"Новый отзыв от {name}: {message} (оценка: {rating})")
     return {"status": "success", "message": "Спасибо за отзыв!"}
 
 @app.post("/feedback/")
@@ -112,7 +113,6 @@ async def feedback(
     )
     session.add(new_item)
     await session.commit()
-    print(f"Новый фитбэк {name}: {message} (его телефон: {phone})")
     return {"status": "success", "message": "Спасибо!"}
 
 
@@ -245,7 +245,6 @@ def admin():
     ]
 @app.get('/{path:path}')
 async def html_landing() -> HTMLResponse:
-    """Simple HTML page which serves the React app, comes last as it matches all paths."""
     return HTMLResponse(prebuilt_html(title='admin_panel'))
 
 
@@ -254,4 +253,4 @@ async def html_landing() -> HTMLResponse:
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run('main:app', reload=True, host="0.0.0.0")
+    uvicorn.run('main:app', reload=True, host="0.0.0.0", port=8000)
