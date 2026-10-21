@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проект — Система управления поинтами (СУП)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="project-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="/">Главная</a>
+                <span>/</span>
+                <span>Проект: Система управления поинтами</span>
+            </nav>
+            <h1 class="project-title">Система управления поинтами (СУП)</h1>
+            <p class="project-subtitle">Сервис для фестиваля игр и косплея <a href="https://t.me/showmir">«ШоуМир»</a>. <a href="https://github.com/dr7tone/showmir">GitHub проекта</a></p>
+        </div>
+    </header>
+    <section class="project-details">
+        <div class="container">
+            <div class="detail-block">
+                <div class="detail-text">
+                    <h2>Поинты для фестиваля</h2>
+                    <p>СУП — это внутренняя валюта фестиваля «ШоуМир». Участники получают поинты за активности, а затем тратят их на площадках фестиваля.</p>
+                    <ul>
+                        <li>У каждого участника свой баланс поинтов</li>
+                        <li>Администраторы начисляют и списывают поинты</li>
+                        <li>Каждая операция фиксируется в журнале транзакций</li>
+                    </ul>
+                </div>
+                <div class="detail-image">
+                    <img src="SYP.png" alt="Скриншот системы управления поинтами">
+                </div>
+            </div>
+            <div class="detail-block reverse">
+                <div class="detail-text">
+                    <h2>Проверка баланса по NFC-метке</h2>
+                    <p>Участнику достаточно приложить NFC-метку к считывателю — и система мгновенно покажет его текущий баланс. Никаких приложений и регистраций.</p>
+                    <ul>
+                        <li>Каждому участнику выдаётся персональная NFC-метка</li>
+                        <li>Баланс отображается на отдельной странице участника</li>
+                        <li>Удобно для работы волонтёров на площадках</li>
+                    </ul>
+                </div>
+                <div class="detail-image">
+                    <img src="SYP.png" alt="Проверка баланса по NFC">
+                </div>
+            </div>
+            <div class="detail-block">
+                <div class="detail-text">
+                    <h2>Админ-панель и роли</h2>
+                    <p>Администраторы входят в систему по токену и управляют балансами участников. Разграничение прав позволяет контролировать, кто и сколько может начислять.</p>
+                    <ul>
+                        <li>Роли: admin и superadmin</li>
+                        <li>Superadmin управляет администраторами и их ценами</li>
+                        <li>JWT-авторизация с cookie-токенами</li>
+                    </ul>
+                </div>
+                <div class="detail-image">
+                    <img src="SYP.png" alt="Админ-панель">
+                </div>
+            </div>
+            <div class="detail-block reverse">
+                <div class="detail-text">
+                    <h2>Технологии</h2>
+                    <p>Бэкенд написан на Python с использованием FastAPI. Данные хранятся в PostgreSQL, вынесенном в отдельный Docker-контейнер.</p>
+                    <ul>
+                        <li>Python + FastAPI</li>
+                        <li>SQLAlchemy + PostgreSQL</li>
+                        <li>Docker Compose для развёртывания</li>
+                        <li>JWT-аутентификация (AuthX)</li>
+                    </ul>
+                </div>
+                <div class="detail-image">
+                    <img src="SYP.png" alt="Технологии">
+                </div>
+            </div>
+
+            <div class="back-link">
+                <a href="/" class="btn">← Назад</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Моисеев Александр. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
