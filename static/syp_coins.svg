@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff8f0"/>
+      <stop offset="100%" stop-color="#ffe9cc"/>
+    </linearGradient>
+    <linearGradient id="coin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffb84d"/>
+      <stop offset="100%" stop-color="#ff8c00"/>
+    </linearGradient>
+    <linearGradient id="coin2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd08a"/>
+      <stop offset="100%" stop-color="#ffa733"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="20" fill="url(#bg)"/>
+  <!-- задние монеты -->
+  <circle cx="150" cy="120" r="42" fill="url(#coin2)" opacity="0.7"/>
+  <circle cx="150" cy="120" r="42" fill="none" stroke="#e07b00" stroke-width="3" opacity="0.5"/>
+  <circle cx="250" cy="110" r="38" fill="url(#coin2)" opacity="0.6"/>
+  <circle cx="250" cy="110" r="38" fill="none" stroke="#e07b00" stroke-width="3" opacity="0.5"/>
+  <!-- передняя монета -->
+  <circle cx="200" cy="150" r="55" fill="url(#coin)"/>
+  <circle cx="200" cy="150" r="55" fill="none" stroke="#e07b00" stroke-width="4"/>
+  <circle cx="200" cy="150" r="44" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.6"/>
+  <text x="200" y="163" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#fff">P</text>
+  <!-- блик -->
+  <ellipse cx="180" cy="125" rx="18" ry="10" fill="#fff" opacity="0.35" transform="rotate(-25 180 125)"/>
+  <!-- маленькие монетки -->
+  <circle cx="90" cy="200" r="20" fill="url(#coin2)"/>
+  <circle cx="90" cy="200" r="20" fill="none" stroke="#e07b00" stroke-width="2.5"/>
+  <text x="90" y="207" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">P</text>
+  <circle cx="310" cy="195" r="18" fill="url(#coin2)"/>
+  <circle cx="310" cy="195" r="18" fill="none" stroke="#e07b00" stroke-width="2.5"/>
+  <text x="310" y="201" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#fff">P</text>
+  <circle cx="120" cy="60" r="14" fill="url(#coin2)"/>
+  <circle cx="120" cy="60" r="14" fill="none" stroke="#e07b00" stroke-width="2"/>
+  <text x="120" y="65" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">P</text>
+  <circle cx="290" cy="60" r="12" fill="url(#coin2)"/>
+  <circle cx="290" cy="60" r="12" fill="none" stroke="#e07b00" stroke-width="2"/>
+  <text x="290" y="64" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#fff">P</text>
+</svg>
