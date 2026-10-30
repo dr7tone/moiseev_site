@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Три ветви проекта</title>
+  <desc id="desc">Схема ветвления Git: основная ветка master и три ветви проекта.</desc>
+  <rect width="640" height="360" fill="#111827"/>
+  <text x="32" y="48" fill="#f9fafb" font-family="Arial, sans-serif" font-size="24" font-weight="700">git branch</text>
+  <text x="32" y="76" fill="#9ca3af" font-family="Arial, sans-serif" font-size="15">три ветви проекта в репозитории moiseev_site</text>
+  <line x1="48" y1="140" x2="592" y2="140" stroke="#f59e0b" stroke-width="4"/>
+  <circle cx="72" cy="140" r="8" fill="#f59e0b"/>
+  <circle cx="240" cy="140" r="8" fill="#f59e0b"/>
+  <circle cx="408" cy="140" r="8" fill="#f59e0b"/>
+  <circle cx="576" cy="140" r="8" fill="#f59e0b"/>
+  <text x="54" y="176" fill="#fbbf24" font-family="Arial, sans-serif" font-size="14">master</text>
+  <path d="M240 140 C240 110 240 100 280 100 L560 100" fill="none" stroke="#60a5fa" stroke-width="3"/>
+  <circle cx="560" cy="100" r="7" fill="#60a5fa"/>
+  <text x="440" y="88" fill="#93c5fd" font-family="Arial, sans-serif" font-size="14">feature-docs</text>
+  <path d="M408 140 C408 182 408 196 448 196 L560 196" fill="none" stroke="#34d399" stroke-width="3"/>
+  <circle cx="560" cy="196" r="7" fill="#34d399"/>
+  <text x="440" y="222" fill="#6ee7b7" font-family="Arial, sans-serif" font-size="14">feature-code</text>
+  <path d="M576 140 C576 232 576 248 536 248 L440 248" fill="none" stroke="#f472b6" stroke-width="3"/>
+  <circle cx="440" cy="248" r="7" fill="#f472b6"/>
+  <text x="316" y="274" fill="#f9a8d4" font-family="Arial, sans-serif" font-size="14">feature-images</text>
+  <text x="32" y="330" fill="#6b7280" font-family="Arial, sans-serif" font-size="13">Лабораторная работа №5 · Git · GitHub</text>
+</svg>
